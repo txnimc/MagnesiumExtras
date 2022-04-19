@@ -15,6 +15,7 @@ public class MagnesiumExtrasConfig
     public static ConfigValue<String> fadeInQuality;
 
     public static ConfigValue<String> fpsCounterMode;
+    public static ConfigValue<Boolean> fpsCounterAlignRight;
     public static ConfigValue<Integer> fpsCounterPosition;
     public static ForgeConfigSpec.ConfigValue<Integer> cloudHeight;
 
@@ -55,6 +56,7 @@ public class MagnesiumExtrasConfig
 
         builder.Block("FPS Counter", b -> {
             fpsCounterMode = b.define("Display FPS Counter (OFF, SIMPLE, ADVANCED)", "ADVANCED");
+            fpsCounterAlignRight = b.define("Right-align FPS Counter", false);
             fpsCounterPosition = b.define("FPS Counter Distance", 12);
         });
 

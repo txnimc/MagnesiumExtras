@@ -64,10 +64,19 @@ public class SodiumGameOptionsMixin
                 .setImpact(OptionImpact.LOW)
                 .build();
 
+        OptionImpl<SodiumGameOptions, Boolean> displayFpsAlignRight = OptionImpl.createBuilder(Boolean.class, sodiumOpts)
+                .setName("Right-align FPS Display")
+                .setTooltip("Aligns the FPS display to the right side of the screen. Useful if you have other overlays that show on the left side of the screen. Does nothing if the Display FPS option is set to Off.")
+                .setControl(TickBoxControl::new)
+                .setBinding(
+                        (options, value) -> MagnesiumExtrasConfig.fpsCounterAlignRight.set(value),
+                        (options) -> MagnesiumExtrasConfig.fpsCounterAlignRight.get())
+                .setImpact(OptionImpact.LOW)
+                .build();
 
         Option<Integer> displayFpsPos = OptionImpl.createBuilder(Integer.TYPE, sodiumOpts)
                 .setName("FPS Display Position")
-                .setTooltip("Offsets the FPS display a few pixels")
+                .setTooltip("Offsets the FPS display from the top-left or top-right corner of the screen.")
                 .setControl((option) -> {
                     return new SliderControl(option, 4, 64, 2, ControlValueFormatter.quantity("Pixels"));
                 })
@@ -79,6 +88,7 @@ public class SodiumGameOptionsMixin
 
         groups.add(OptionGroup.createBuilder()
                 .add(displayFps)
+                .add(displayFpsAlignRight)
                 .add(displayFpsPos)
                 .build());
 

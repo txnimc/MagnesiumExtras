@@ -43,6 +43,7 @@ public class FrameCounterMixin
         else
             displayString = String.valueOf(fps);
 
+        boolean textAlignRight = MagnesiumExtrasConfig.fpsCounterAlignRight.get();
         float textPos = (int)MagnesiumExtrasConfig.fpsCounterPosition.get();
 
         int textAlpha = 200;
@@ -57,7 +58,14 @@ public class FrameCounterMixin
         // Prevent FPS-Display to render outside screenspace
         float maxTextPosX = client.getWindow().getGuiScaledWidth() - client.font.width(displayString);
         float maxTextPosY = client.getWindow().getGuiScaledHeight() - client.font.lineHeight;
-        textPos = Math.min(textPos, maxTextPosX);
+        float textPosX, textPosY;
+        if (textAlignRight)
+            textPosX = maxTextPosX - client.font.width(displayString) - textPos;
+        else
+            textPosX = Math.min(textPos, maxTextPosX);
+        textPosX = Math.min(Math.max(textPosX, 0), maxTextPosX);
+        textPosY = Math.min(textPos, maxTextPosY);
+
 
         int drawColor = ((textAlpha & 0xFF) << 24) | textColor;
 
@@ -65,12 +73,12 @@ public class FrameCounterMixin
         {
             GL11.glPushMatrix();
             GL11.glScalef(fontScale, fontScale, fontScale);
-            client.font.drawShadow(matrixStack, displayString, textPos, textPos, drawColor);
+            client.font.drawShadow(matrixStack, displayString, textPosX, textPosY, drawColor);
             GL11.glPopMatrix();
         }
         else
         {
-            client.font.drawShadow(matrixStack, displayString, textPos, textPos, drawColor);
+            client.font.drawShadow(matrixStack, displayString, textPosX, textPosY, drawColor);
         }
     }
 
@@ -103,4 +111,3 @@ public class FrameCounterMixin
         return fps + " | MIN " + vice.magnesium_extras.features.FrameCounter.MinFrameProvider.getLastMinFrame() + " | AVG " + runningAverageFPS;
     }
 }
-
