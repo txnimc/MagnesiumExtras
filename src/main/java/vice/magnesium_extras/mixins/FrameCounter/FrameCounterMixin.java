@@ -60,7 +60,7 @@ public class FrameCounterMixin
         float maxTextPosY = client.getWindow().getGuiScaledHeight() - client.font.lineHeight;
         float textPosX, textPosY;
         if (textAlignRight)
-            textPosX = maxTextPosX - client.font.width(displayString) - textPos;
+            textPosX = client.getWindow().getGuiScaledWidth() - client.font.width(displayString) - textPos;
         else
             textPosX = Math.min(textPos, maxTextPosX);
         textPosX = Math.min(Math.max(textPosX, 0), maxTextPosX);
