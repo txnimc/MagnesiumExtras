@@ -54,7 +54,6 @@ public class MagnesiumExtras
             final Field sodiumOptsField = SodiumGameOptionPages.class.getDeclaredField("sodiumOpts");
             sodiumOptsField.setAccessible(true);
             SodiumOptionsStorage sodiumOpts = (SodiumOptionsStorage) sodiumOptsField.get(null);
-            sodiumOpts.getData().experimental.displayFps = false;
             sodiumOpts.save();
         }
         catch (Throwable t) {

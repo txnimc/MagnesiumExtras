@@ -126,8 +126,8 @@ dependencies {
 
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    compileOnly fg.deobf("curse.maven:magnesium-532724:3526076")
-    runtimeOnly fg.deobf("curse.maven:magnesium-532724:3526076")
+    compileOnly fg.deobf("curse.maven:magnesium-574856:3949659")
+    runtimeOnly fg.deobf("curse.maven:magnesium-574856:3949659")
 
     runtimeOnly fg.deobf("curse.maven:dynlights-551736:3574974")
 
