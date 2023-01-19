@@ -4,8 +4,11 @@ import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 import lombok.val;
 import me.jellysquid.mods.sodium.client.gui.options.TextProvider;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.ForgeConfigSpec;
 import java.nio.file.Path;
+import java.util.Collections;
+import java.util.List;
 import static net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
 
 public class MagnesiumExtrasConfig
@@ -24,6 +27,7 @@ public class MagnesiumExtrasConfig
 
     public static ConfigValue<Integer> maxEntityRenderDistanceSquare;
     public static ConfigValue<Integer> maxEntityRenderDistanceY;
+    public static ConfigValue<List<? extends String>> entityWhitelist;
 
     public static ConfigValue<Boolean> fog;
     public static ConfigValue<Boolean> enableDistanceChecks;
@@ -86,6 +90,8 @@ public class MagnesiumExtrasConfig
 
             maxEntityRenderDistanceSquare = b.define("(Entity) Max Horizontal Render Distance [Squared, Default 64^2]", 4096);
             maxEntityRenderDistanceY = b.define("(Entity) Max Vertical Render Distance [Raw, Default 32]", 32);
+            entityWhitelist = b.comment("List of entities to not cull based on distance." +
+                    "Example: \"minecraft:bat\"").defineListAllowEmpty(Collections.singletonList("Entity Whitelist"), Collections::emptyList, (s) -> ResourceLocation.tryParse((String) s) != null);
         });
 
         builder.Block("Zoom", b -> {
