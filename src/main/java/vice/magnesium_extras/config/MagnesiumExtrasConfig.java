@@ -90,8 +90,7 @@ public class MagnesiumExtrasConfig
 
             maxEntityRenderDistanceSquare = b.define("(Entity) Max Horizontal Render Distance [Squared, Default 64^2]", 4096);
             maxEntityRenderDistanceY = b.define("(Entity) Max Vertical Render Distance [Raw, Default 32]", 32);
-            entityWhitelist = b.comment("List of entities to not cull based on distance." +
-                    "Example: \"minecraft:bat\"").defineListAllowEmpty(Collections.singletonList("Entity Whitelist"), Collections::emptyList, (s) -> ResourceLocation.tryParse((String) s) != null);
+            entityWhitelist = b.comment("List of entities to not cull based on distance. Example: \"minecraft:bat\"").defineListAllowEmpty(Collections.singletonList("Entity Whitelist"), Collections::emptyList, (s) -> ResourceLocation.tryParse((String) s) != null);
         });
 
         builder.Block("Zoom", b -> {
