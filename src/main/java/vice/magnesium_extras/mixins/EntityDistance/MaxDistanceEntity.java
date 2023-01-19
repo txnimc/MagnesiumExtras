@@ -3,6 +3,7 @@ package vice.magnesium_extras.mixins.EntityDistance;
 import net.minecraft.client.renderer.culling.ClippingHelper;
 import net.minecraft.client.renderer.entity.EntityRendererManager;
 import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -26,10 +27,15 @@ public class MaxDistanceEntity
                 cameraZ,
                 MagnesiumExtrasConfig.maxEntityRenderDistanceY.get(),
                 MagnesiumExtrasConfig.maxEntityRenderDistanceSquare.get()
-        ))
+        ) && !entityWhitelisted(entity.getType().getRegistryName()))
         {
             cir.cancel();
         }
     }
+
+    private boolean entityWhitelisted(ResourceLocation s) {
+        return s != null && MagnesiumExtrasConfig.entityWhitelist.get().stream().anyMatch(s.toString()::equals);
+    }
+
 }
 
