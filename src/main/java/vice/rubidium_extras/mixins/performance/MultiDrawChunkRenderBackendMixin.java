@@ -5,7 +5,6 @@ import me.jellysquid.mods.sodium.client.gl.buffer.GlBufferTarget;
 import me.jellysquid.mods.sodium.client.gl.buffer.GlMutableBuffer;
 import me.jellysquid.mods.sodium.client.gl.device.CommandList;
 import me.jellysquid.mods.sodium.client.gl.device.DrawCommandList;
-import me.jellysquid.mods.sodium.client.render.chunk.ChunkCameraContext;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Overwrite;

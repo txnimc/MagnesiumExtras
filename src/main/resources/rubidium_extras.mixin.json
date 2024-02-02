@@ -1,13 +1,9 @@
 {
   "required": true,
   "package": "vice.rubidium_extras.mixins",
-  "compatibilityLevel": "JAVA_8",
+  "compatibilityLevel": "JAVA_17",
   "refmap": "rubidium_extras.refmap.json",
   "plugin": "vice.rubidium_extras.MixinConfigPlugin",
-  "mixins": [
-    "SodiumConfig.SodiumGameOptionsMixin",
-    "Zoom.PlayerInventoryMixin"
-  ],
   "minVersion": "0.8",
   "client": [
     "BorderlessFullscreen.MainWindowAccessor",
@@ -20,12 +16,14 @@
     "FrameCounter.FpsAccessorMixin",
     "FrameCounter.FrameCounterMixin",
     "SodiumConfig.SodiumGUIMixin",
+    "SodiumConfig.SodiumGameOptionsMixin",
     "TotalDarkness.MixinGameRenderer",
     "TotalDarkness.MixinLightmapTextureManager",
     "TotalDarkness.MixinNativeImageBackedTexture",
     "TotalDarkness.MixinTheEndDimension",
     "TotalDarkness.MixinTheNetherDimension",
     "Zoom.GameRendererMixin",
-    "Zoom.MouseMixin"
+    "Zoom.MouseMixin",
+    "Zoom.PlayerInventoryMixin"
   ]
 }
