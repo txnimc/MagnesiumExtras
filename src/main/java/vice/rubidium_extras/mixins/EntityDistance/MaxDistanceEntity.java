@@ -28,8 +28,8 @@ public class MaxDistanceEntity
             return;
 
         var name = entity.getClass().getName();
-        if (name != null && name.startsWith("com.simibubi.create.content.contraptions"))
-            return;
+        if (name.startsWith("com.simibubi.create.content.contraptions")) return;
+        if (name.startsWith("com.github.alexthe666.iceandfire.entity") && name.contains("dragon")) return;
 
         if (!DistanceUtility.isEntityWithinDistance(
                 entity,

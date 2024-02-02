@@ -18,8 +18,10 @@ public class MaxDistanceTileEntity
     @Inject(at = @At("HEAD"), method = "render", cancellable = true)
     public <E extends BlockEntity> void render(E entity, float val, PoseStack matrix, MultiBufferSource p_228850_4_, CallbackInfo ci)
     {
-        if (!MagnesiumExtrasConfig.enableDistanceChecks.get())
-            return;
+        if (!MagnesiumExtrasConfig.enableDistanceChecks.get()) return;
+
+        if (entity.getClass().getName().startsWith("me.srrapero720.waterframes")) return; // WATERFrAMES HAVE THEIR OWN DISTANCE CONTROL
+
 
         BlockEntityRenderDispatcher thisObj = (BlockEntityRenderDispatcher) (Object) this;
 
