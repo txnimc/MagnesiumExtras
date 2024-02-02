@@ -4,8 +4,10 @@ import com.electronwill.nightconfig.core.file.CommentedFileConfig;
 import com.electronwill.nightconfig.core.io.WritingMode;
 import net.minecraftforge.common.ForgeConfigSpec;
 import java.nio.file.Path;
+import java.util.List;
 
 import net.minecraftforge.common.ForgeConfigSpec.ConfigValue;
+import net.minecraftforge.fml.loading.FMLPaths;
 
 public class MagnesiumExtrasConfig
 {
@@ -18,9 +20,11 @@ public class MagnesiumExtrasConfig
     public static ForgeConfigSpec.ConfigValue<Integer> cloudHeight;
 
 
+    public static ConfigValue<List<? extends String>> tileDistanceWhitelist;
     public static ConfigValue<Integer> maxTileEntityRenderDistanceSquare;
     public static ConfigValue<Integer> maxTileEntityRenderDistanceY;
 
+    public static ConfigValue<List<? extends String>> entityDistanceWhitelist;
     public static ConfigValue<Integer> maxEntityRenderDistanceSquare;
     public static ConfigValue<Integer> maxEntityRenderDistanceY;
 
@@ -128,7 +132,9 @@ public class MagnesiumExtrasConfig
         ConfigSpec = builder.Save();
     }
 
-    public static void loadConfig(Path path) {
+    public static void loadConfig() {
+        if (ConfigSpec.isLoaded()) return;
+        final Path path = FMLPaths.CONFIGDIR.get().resolve("rubidium_extras.toml");
         final CommentedFileConfig configData = CommentedFileConfig.builder(path).sync().autosave().writingMode(WritingMode.REPLACE).build();
 
         configData.load();

@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import vice.rubidium_extras.config.MagnesiumExtrasConfig;
+import vice.rubidium_extras.features.EntityDistance.IWhitelistCheck;
 import vice.rubidium_extras.util.DistanceUtility;
 
 @Mixin(BlockEntityRenderDispatcher.class)
@@ -25,7 +26,7 @@ public class MaxDistanceTileEntity
 
         BlockEntityRenderDispatcher thisObj = (BlockEntityRenderDispatcher) (Object) this;
 
-        if (!DistanceUtility.isEntityWithinDistance(
+        if (!((IWhitelistCheck) entity.getType()).extras$isAllowed() && !DistanceUtility.isEntityWithinDistance(
                 entity.getBlockPos(),
                 thisObj.camera.getPosition(),
                 MagnesiumExtrasConfig.maxTileEntityRenderDistanceY.get(),

@@ -10,5 +10,5 @@ import org.spongepowered.asm.mixin.injection.Inject;
 public interface MainWindowAccessor
 {
     @Accessor("dirty")
-    public void setDirty(boolean value);
+    void setDirty(boolean value);
 }

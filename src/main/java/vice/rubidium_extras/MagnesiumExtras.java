@@ -19,7 +19,7 @@ public class MagnesiumExtras
     public MagnesiumExtras() {
         MinecraftForge.EVENT_BUS.register(this);
 
-        MagnesiumExtrasConfig.loadConfig(FMLPaths.CONFIGDIR.get().resolve("rubidium_extras.toml"));
+        MagnesiumExtrasConfig.loadConfig();
 
         //MinecraftForge.EVENT_BUS.register(this);
 

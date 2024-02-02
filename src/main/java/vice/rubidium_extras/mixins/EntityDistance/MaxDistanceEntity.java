@@ -10,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vice.rubidium_extras.config.MagnesiumExtrasConfig;
+import vice.rubidium_extras.features.EntityDistance.IWhitelistCheck;
 import vice.rubidium_extras.util.DistanceUtility;
 
 @Mixin(EntityRenderDispatcher.class)
@@ -31,7 +32,7 @@ public class MaxDistanceEntity
         if (name.startsWith("com.simibubi.create.content.contraptions")) return;
         if (name.startsWith("com.github.alexthe666.iceandfire.entity") && name.contains("dragon")) return;
 
-        if (!DistanceUtility.isEntityWithinDistance(
+        if (!((IWhitelistCheck) entity.getType()).extras$isAllowed() && !DistanceUtility.isEntityWithinDistance(
                 entity,
                 cameraX,
                 cameraY,

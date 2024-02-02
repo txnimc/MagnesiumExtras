@@ -15,8 +15,8 @@
     "fog.BackgroundRendererMixin",
     "FrameCounter.FpsAccessorMixin",
     "FrameCounter.FrameCounterMixin",
-    "SodiumConfig.SodiumGUIMixin",
     "SodiumConfig.SodiumGameOptionsMixin",
+    "SodiumConfig.SodiumGUIMixin",
     "TotalDarkness.MixinGameRenderer",
     "TotalDarkness.MixinLightmapTextureManager",
     "TotalDarkness.MixinNativeImageBackedTexture",
@@ -25,5 +25,9 @@
     "Zoom.GameRendererMixin",
     "Zoom.MouseMixin",
     "Zoom.PlayerInventoryMixin"
+  ],
+  "mixins": [
+    "EntityDistance.EntityTypeMixin",
+    "EntityDistance.TileEntityTypeMixin"
   ]
 }
