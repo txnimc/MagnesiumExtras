@@ -33,4 +33,12 @@ public class WindowMixin
             GLFW.glfwSetWindowMonitor(window, monitor, xpos, ypos, width, height, refreshRate);
         }
     }
+
+    @Redirect(method = "setMode", at = @At(value = "INVOKE", remap = false, target = "Lorg/lwjgl/glfw/GLFW;glfwGetWindowMonitor(J)J"))
+    private long redirect$glfwGetWindowMonitor(long window) {
+        if (MagnesiumExtrasConfig.fullScreenMode.get() == MagnesiumExtrasConfig.FullscreenMode.BORDERLESS) {
+            return 1L;
+        }
+        return window;
+    }
 }
