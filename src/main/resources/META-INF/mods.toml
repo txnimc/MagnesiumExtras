@@ -12,7 +12,7 @@ displayTest="IGNORE_SERVER_VERSION"
     logoFile="pack.png" #optional
     authors="${modauthor}" #optional
     credits="${modcredits}"
-    displayURL="https://www.curseforge.com/minecraft/mc-mods/embeddiumplus"
+    displayURL="https://www.curseforge.com/minecraft/mc-mods/magnesium-extras"
     description='''${mod_description}'''
 
 [[dependencies.${modid}]]

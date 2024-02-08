@@ -1,0 +1,32 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "toni.embeddiumextras.mixins.impl",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "embeddiumextras.mixin-refmap.json",
+  "client": [
+    "borderless.BorderlessWindowMixin",
+    "borderless.KeyboardF11Mixin",
+    "borderless.accessors.MainWindowAccessor",
+    "cloudheight.CloudHeightMixin",
+    "darkness.DimensionEffectsMixin",
+    "darkness.DimensionEffectsMixin$EndMixin",
+    "darkness.DimensionEffectsMixin$NetherMixin",
+    "darkness.GameRendererMixin",
+    "darkness.LightMapTexManagerMixin",
+    "darkness.NativeImageTextureMixin",
+    "darkness.accessors.LightTextureAccessor",
+    "embeddium.EmbOptionsMixin",
+    "embeddium.EmbPagesMixin",
+    "entitydistance.EntityDispatcherMixin",
+    "entitydistance.EntityTypeMixin",
+    "entitydistance.TileDispatcherMixin",
+    "entitydistance.TileEntityTypeMixin",
+    "fontshadow.FontMixin",
+    "fontshadow.FontMixin$StringRenderOutputMixin",
+    "fps.GpuUsageMixin",
+    "jei.JeiOverlayMixin",
+    "language.LanguageMixin",
+    "togglefog.FogMixin"
+  ]
+}
