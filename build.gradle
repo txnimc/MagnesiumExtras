@@ -65,7 +65,6 @@ dependencies {
     // DEPENDENCIES
     implementation fg.deobf("org.embeddedt:embeddium-${mcversion}:${embeddiumversion}")
     implementation fg.deobf("curse.maven:jei-238222:${jeiversion}")
-    runtimeOnly fg.deobf("curse.maven:textrues-embeddium-options-910506:${embeddiumoptionsversion}")
     runtimeOnly fg.deobf("curse.maven:oculus-581495:${oculusversion}")
 
     // MOD SUPPORT
